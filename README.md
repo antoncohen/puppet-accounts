@@ -41,9 +41,9 @@ Remove an account:
 
 Realize the resources:
 
-  Accounts::Account <| title == 'bob' |>
-  Accounts::Account <| title == 'jay' |>
-  Accounts::Account <| title == 'dante' |>
+    Accounts::Account <| title == 'bob' |>
+    Accounts::Account <| title == 'jay' |>
+    Accounts::Account <| title == 'dante' |>
 
 ## Author ##
 
