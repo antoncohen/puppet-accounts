@@ -13,41 +13,37 @@ accounts::account creates a user group *before* the user account. This allows gr
 Add virtual resources to accounts::virtual or to your own classes.
 
 Provide full details:
-```puppet
-@accounts::account { 'bob':
-  ensure => present,
-  comment => 'Silent Bob',
-  uid => 1000,
-  gid => 1000,
-  groups => ['wheel'],
-  home => '/home/bob',
-  managehome => true,
-  shell => '/bin/bash',
-  password => $private::params::password_hash_bob,
-}
-```
 
-Or let the defaults take care of everything:
-```puppet
-# This will create an account with uid and gid 1001
-@accounts::account { 'jay':
-  uid => 1001,
-}
-```
+    @accounts::account { 'bob':
+      ensure => present,
+      comment => 'Silent Bob',
+      uid => 1000,
+      gid => 1000,
+      groups => ['wheel'],
+      home => '/home/bob',
+      managehome => true,
+      shell => '/bin/bash',
+      password => $private::params::password_hash_bob,
+    }
+
+Or let the defaults take care of everything.
+This will create an account with uid and gid 1001:
+
+    @accounts::account { 'jay':
+      uid => 1001,
+    }
 
 Remove an account:
-```puppet
-@accounts::account { 'dante':
-  ensure => absent,
-}
-```
+
+    @accounts::account { 'dante':
+      ensure => absent,
+    }
 
 Realize the resources:
-```puppet
-Accounts::Account <| title == 'bob' |>
-Accounts::Account <| title == 'jay' |>
-Accounts::Account <| title == 'dante' |>
-```
+
+  Accounts::Account <| title == 'bob' |>
+  Accounts::Account <| title == 'jay' |>
+  Accounts::Account <| title == 'dante' |>
 
 ## Author ##
 
